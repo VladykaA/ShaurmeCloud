@@ -1,6 +1,6 @@
 package com.shaurmecloud.controller;
 
-import com.shaurmecloud.order.repo.OrderRepository;
+import com.shaurmecloud.data.OrderRepository;
 import com.shaurmecloud.shaurme.ShaurmeOrder;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;

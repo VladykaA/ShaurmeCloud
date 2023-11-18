@@ -1,4 +1,4 @@
-package com.shaurmecloud.shaurme;
+package com.shaurmecloud.shaurme.ingredient;
 
 import lombok.Data;
 

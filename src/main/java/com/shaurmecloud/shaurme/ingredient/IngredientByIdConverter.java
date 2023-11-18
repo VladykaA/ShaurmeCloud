@@ -1,14 +1,9 @@
-package com.shaurmecloud.shaurme;
+package com.shaurmecloud.shaurme.ingredient;
 
-import com.shaurmecloud.shaurme.ingredient.repo.IngredientRepository;
+import com.shaurmecloud.data.IngredientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
-
-import static com.shaurmecloud.shaurme.Ingredient.Type;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Component
 public class IngredientByIdConverter implements Converter<String, Ingredient> {
