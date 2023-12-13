@@ -1,24 +1,21 @@
 package com.shaurmecloud.shaurme;
 
 import com.shaurmecloud.shaurme.ingredient.Ingredient;
-import com.shaurmecloud.shaurme.ingredient.IngredientRef;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.relational.core.mapping.Table;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 @Data
-@Table
-@EqualsAndHashCode(exclude = "createdAt")
+@Entity
 public class Shaurme {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private Date createdAt = new Date();
@@ -29,9 +26,10 @@ public class Shaurme {
 
     @NotNull
     @Size(min = 2, message = "At least two ingredients should be selected.")
-    private List<IngredientRef> ingredients = new ArrayList<>();
+    @ManyToMany()
+    private List<Ingredient> ingredients = new ArrayList<>();
 
     public void addIngredients(Ingredient ingredient){
-        this.ingredients.add(new IngredientRef(ingredient.getId()));
+        this.ingredients.add(ingredient);
     }
 }

@@ -2,11 +2,9 @@ package com.shaurmecloud;
 
 import com.shaurmecloud.controller.DesignShaurmeController;
 import com.shaurmecloud.data.IngredientRepository;
-import com.shaurmecloud.data.OrderRepository;
 import com.shaurmecloud.shaurme.Shaurme;
-import com.shaurmecloud.shaurme.ingredient.Ingredient.Type;
 import com.shaurmecloud.shaurme.ingredient.Ingredient;
-import com.shaurmecloud.shaurme.ingredient.IngredientRef;
+import com.shaurmecloud.shaurme.ingredient.Ingredient.Type;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -59,7 +57,10 @@ public class DesignShaurmeControllerTest {
         when(ingredientRepository.findById("FLTO")).thenReturn(Optional.of(new Ingredient("FLTO", "Flour Tortilla", Type.WRAP)));
         shaurme = new Shaurme();
         shaurme.setName("Test shaurme");
-        shaurme.setIngredients(Arrays.asList(new IngredientRef("FLTO"), new IngredientRef("GRBF"), new IngredientRef("CHED")));
+        shaurme.setIngredients(Arrays.asList(
+                new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
+                new Ingredient("GRBF", "Ground Beef", Type.PROTEIN),
+                new Ingredient("CHED", "Cheddar", Type.CHEESE)));
     }
 
     @Test
